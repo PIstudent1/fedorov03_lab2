@@ -13,7 +13,7 @@ struct driver setDriver() {
 	while (getchar() != '\n');
 	printf("\n\n¬ведите фамилию: ");
 	scanf("%s", drive.lastname);
-	printf("\n");
+	printf("\n\n¬ведите дату рождени€:\n");
 	drive.bd=setDate();
 	return drive;
 }
