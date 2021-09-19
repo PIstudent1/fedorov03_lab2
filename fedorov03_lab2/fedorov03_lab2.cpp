@@ -5,8 +5,10 @@
 #include <stdlib.h>
 #include <conio.h>
 #include "date.h"
+#include "driver.h"
 
 date date23;
+driver drive23;
 
 int main()
 {

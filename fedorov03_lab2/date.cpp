@@ -7,17 +7,17 @@
 date data;
 
 struct date setDate() {
-	printf("¬ведите день:");
+	printf("¬ведите день: ");
 	while (scanf("%d", &data.day)!=1) {
 		while (getchar() != '\n');
 		printf("ќшибка. ¬ведите число: ");
 	}
-	printf("\n\n¬ведите мес€ц:");
+	printf("\n\n¬ведите мес€ц: ");
 	while (scanf("%d", &data.month)!=1) {
 		while (getchar() != '\n');
 		printf("ќшибка. ¬ведите число: ");
 	}
-	printf("\n\n¬ведите год:");
+	printf("\n\n¬ведите год: ");
 	while (scanf("%d", &data.year)!=1) {
 		while (getchar() != '\n');
 		printf("ќшибка. ¬ведите число: ");
@@ -35,4 +35,22 @@ struct date sozdDate() {
 	data.month = 9;
 	data.year = 2021;
 	return data;
+}
+
+void letDate(date date1){
+	int year1, res;
+	printf("\n\n¬ведите год(<%d):",date1.year);
+	while (scanf("%d", &year1) != 1) {
+		while (getchar() != '\n');
+		if (scanf("%d", &year1) != 1) {
+			printf("ќшибка. ¬ведите число: ");
+		}
+		while (year1 > date1.year) {
+			if (scanf("%d", &year1) != date1.year) {
+				printf("¬ы ввели год больше, чем 2021. ѕовторите ввод:");
+			}
+		}
+	}
+	res=date1.year - year1;
+	printf("\n\n оличество лет прошедших от %d до %d: %d", date1.year, year1, res);
 }
