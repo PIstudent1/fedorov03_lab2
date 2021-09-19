@@ -2,7 +2,7 @@
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "date.h"
+
 #include "engine.h"
 
 struct engine eng;
@@ -37,7 +37,7 @@ void printEngine(engine eng1)
 {
 	printf("\n\nСерийный номер двигателя: %d", eng1.num);
 	printf("\n\nМощность двигателя: %d л.с.", eng1.pw);
-	printf("\n\nДата производства:");
+	printf("\n\nДата производства: ");
 	printDate(eng1.cd);
 }
 
@@ -45,5 +45,5 @@ void kvtEngine(engine eng1)
 {
 	double ls=0.736, res=0;
 	res = eng1.pw * ls;
-	printf("\n\nМощность двигателя в кВт: %d", res);
+	printf("\n\nМощность двигателя в кВт: %lg", res);
 }

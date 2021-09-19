@@ -1,5 +1,2 @@
-﻿  date.cpp
-  engine.cpp
-C:\Users\Mi\source\repos\fedorov03_lab2\fedorov03_lab2\engine.cpp(48,16): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-  Создание кода...
+﻿  bus.cpp
   fedorov03_lab2.vcxproj -> C:\Users\Mi\source\repos\fedorov03_lab2\x64\Debug\fedorov03_lab2.exe

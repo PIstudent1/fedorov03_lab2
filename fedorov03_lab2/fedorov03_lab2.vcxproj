@@ -139,12 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bus.cpp" />
     <ClCompile Include="date.cpp" />
     <ClCompile Include="driver.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="fedorov03_lab2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bus.h" />
     <ClInclude Include="date.h" />
     <ClInclude Include="driver.h" />
     <ClInclude Include="engine.h" />
