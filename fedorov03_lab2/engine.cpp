@@ -2,12 +2,11 @@
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "engine.h"
 
 struct engine eng;
 
-struct engine setEngine()
+struct engine setEngine() //Функция ввода 
 {
 	printf("\nВведите серийный номер двигателя: ");
 	while (scanf("%d", &eng.num) != 1) {
@@ -25,7 +24,7 @@ struct engine setEngine()
 	return eng;
 }
 
-struct engine sozdEngine()
+struct engine sozdEngine()   //Функция создания 
 {
 	eng.num = 1;
 	eng.pw = 60;
@@ -33,7 +32,7 @@ struct engine sozdEngine()
 	return eng;
 }
 
-void printEngine(engine eng1)
+void printEngine(engine eng1)  //Функция вывода 
 {
 	printf("\n\nСерийный номер двигателя: %d", eng1.num);
 	printf("\n\nМощность двигателя: %d л.с.", eng1.pw);
@@ -41,7 +40,7 @@ void printEngine(engine eng1)
 	printDate(eng1.cd);
 }
 
-void kvtEngine(engine eng1)
+void kvtEngine(engine eng1) //Функция перевода мощности в кВт
 {
 	double ls=0.736, res=0;
 	res = eng1.pw * ls;

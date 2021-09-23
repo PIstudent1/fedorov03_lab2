@@ -6,7 +6,7 @@
 
 date data;
 
-struct date setDate() {
+struct date setDate() { //Функция ввода 
 	printf("\nВведите день: ");
 	while (scanf("%d", &data.day)!=1) {
 		while (getchar() != '\n');
@@ -25,19 +25,19 @@ struct date setDate() {
 	return data;
 }
 
-void printDate(date date1) {
+void printDate(date date1) { //Фукция вывода 
 	printf("%d.%d.%d", date1.day, date1.month, date1.year);
 }
 
 
-struct date sozdDate() {
+struct date sozdDate() { //Функция создания 
 	data.day = 19;
 	data.month = 9;
 	data.year = 2021;
 	return data;
 }
 
-void letDate(date date1){
+void letDate(date date1){  //Функция рассчета возраста
 	int year1=0, res=0;
 	printf("\n\nВведите год(>%d):",date1.year);
 	while (scanf("%d", &year1) != 1) {

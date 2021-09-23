@@ -3,11 +3,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "ticket.h"
+#include "ticket.h" //Присоединение заголовочного файла
 
-ticket tick;
+ticket tick; 
 
-struct ticket setTicket()
+struct ticket setTicket() //Функция ввода
 {
 	printf("\n\nВведите цену билета: ");
 	while (scanf("%d", &tick.sum) != 1) {
@@ -25,7 +25,7 @@ struct ticket setTicket()
 	return tick;
 }
 
-struct ticket sozdTicket()
+struct ticket sozdTicket() //Функция создания
 {
 	tick.sum = 650;
 	strcpy(tick.punkt,"Москва");
@@ -34,16 +34,16 @@ struct ticket sozdTicket()
 	return tick;
 }
 
-void printTicket(ticket tick1)
+void printTicket(ticket tick1) //Функция вывода
 {
-	printf("\n\nЦена билет: %d", tick1.sum);
+	printf("\n\nЦена билета: %d", tick1.sum);
 	printf("\n\nПункт назначения: %s", tick1.punkt);
 	printf("\n\nВремя отправления: %s", tick1.time);
 	printf("\n\nИнформация о водителе: ");
 	printDriver(tick1.dr);
 }
 
-void saleTicket(ticket tick1)
+void saleTicket(ticket tick1) //Функция расчета цены с учетом скидки
 {
 	int sl1=0;
 	double sl2=0;

@@ -2,12 +2,12 @@
 #include "engine.h"
 
 
-struct bus {
-	int num1;
-	char mark[15];
-	engine be;
+struct bus { //Структура автобус
+	int num1; //Номер автоуса
+	char mark[15]; //Марка
+	engine be; //Присоединение структуры двигатель
 };
 
-struct bus setBus();
-struct bus sozdBus();
-void printBus(bus bus1);
+struct bus setBus(); //Функуция ввода 
+struct bus sozdBus(); //Функция создания 
+void printBus(bus bus1); //Функция вывода

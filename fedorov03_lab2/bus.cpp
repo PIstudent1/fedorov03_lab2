@@ -7,7 +7,7 @@
 
 bus bu;
 
-struct bus setBus()
+struct bus setBus() //Функция ввода 
 {
 	printf("\n\nВведите номер автобуса: ");
 	while (scanf("%d", &bu.num1) !=1) {
@@ -22,7 +22,7 @@ struct bus setBus()
 	return bu;
 }
 
-struct bus sozdBus()
+struct bus sozdBus() //Функция создания 
 {
 	bu.num1 = 256;
 	strcpy(bu.mark, "Honda");
@@ -30,7 +30,7 @@ struct bus sozdBus()
 	return bu;
 }
 
-void printBus(bus bus1)
+void printBus(bus bus1) //Функция вывода
 {
 	printf("\n\nНомер автобуса: %d", bus1.num1);
 	printf("\n\nМарка автобуса: %s", bus1.mark);

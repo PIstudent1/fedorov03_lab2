@@ -20,8 +20,13 @@ int main()
 {
     setlocale(LC_ALL,"Rus");
     system("chcp 1251");
-    tick23 = sozdTicket();
-    saleTicket(tick23);
+    date23 = setDate();
+    printDate(date23);
+    letDate(date23);
+    eng23=sozdEngine();
+    kvtEngine(eng23);
+    tick23 = setTicket();
+    printTicket(tick23);
     
     
 }

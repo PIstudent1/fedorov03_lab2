@@ -1,2 +1,8 @@
-﻿  ticket.cpp
+﻿  bus.cpp
+  date.cpp
+  driver.cpp
+  engine.cpp
+  fedorov03_lab2.cpp
+  ticket.cpp
+  Создание кода...
   fedorov03_lab2.vcxproj -> C:\Users\Mi\source\repos\fedorov03_lab2\x64\Debug\fedorov03_lab2.exe

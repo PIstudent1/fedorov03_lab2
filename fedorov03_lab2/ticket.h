@@ -1,14 +1,14 @@
 #pragma once
 #include "driver.h"
 
-struct ticket {
-	int sum;
-	char punkt[15];
-	char time[15];
-	driver dr;
+struct ticket {  //Структура билет
+	int sum; //Цена билета 
+	char punkt[15]; //Пункт назначения
+	char time[15]; //Время отправления
+	driver dr; //Присоединение структуры водитель
 };
 
-struct ticket setTicket();
-struct ticket sozdTicket();
-void printTicket(ticket tick1);
-void saleTicket(ticket tick1);
+struct ticket setTicket(); //Функция ввода 
+struct ticket sozdTicket(); //Функция создания 
+void printTicket(ticket tick1); //Функция вывода
+void saleTicket(ticket tick1); //Функция расчета цены с учетом скидки

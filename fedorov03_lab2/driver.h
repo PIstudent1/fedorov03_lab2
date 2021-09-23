@@ -2,12 +2,12 @@
 #include "date.h"
 #define N 15
 
-struct driver {
-	char name[N];
-	char lastname[N];
-	date bd;
+struct driver { //Структура водитель
+	char name[N]; //Имя
+	char lastname[N]; //Фамилия
+	date bd; //Присоединение структуры дата
 };
 
-struct driver setDriver();
-void printDriver(driver drive1);
-struct driver sozdDriver();
+struct driver setDriver(); //Функция ввода
+void printDriver(driver drive1); //Функция вывода 
+struct driver sozdDriver(); //Функция создания
