@@ -5,10 +5,11 @@
 #include <string.h>
 #include "ticket.h" //Присоединение заголовочного файла
 
-ticket tick; 
+
 
 struct ticket setTicket() //Функция ввода
 {
+	ticket tick;
 	printf("\n\nВведите цену билета: ");
 	while (scanf("%d", &tick.sum) != 1) {
 		while (getchar() != '\n');
@@ -25,12 +26,13 @@ struct ticket setTicket() //Функция ввода
 	return tick;
 }
 
-struct ticket sozdTicket() //Функция создания
+struct ticket sozdTicket(int s, char p[15], char t[15], driver tickdrive) //Функция создания
 {
-	tick.sum = 650;
-	strcpy(tick.punkt,"Москва");
-	strcpy(tick.time,"6.15");
-	tick.dr = sozdDriver();
+	ticket tick;
+	tick.sum = s;
+	strcpy(tick.punkt,p);
+	strcpy(tick.time,t);
+	tick.dr = tickdrive;
 	return tick;
 }
 
@@ -45,10 +47,11 @@ void printTicket(ticket tick1) //Функция вывода
 
 void saleTicket(ticket tick1) //Функция расчета цены с учетом скидки
 {
+	ticket tick;
 	int sl1=0;
 	double sl2=0;
 	printf("\n\nВведите процент скидки:");
 	scanf("%d", &sl1);
-	sl2 = tick1.sum - (tick.sum * sl1 / 100);
+	sl2 = tick1.sum - (tick1.sum * sl1 / 100);
 	printf("\n\nЦена с учетом скидки %d процент(ов): %lg",sl1, sl2 );
 }

@@ -8,5 +8,5 @@ struct date { //Структура дата
 
 struct date setDate(); //Функция ввода 
 void printDate(date date1); //Функция вывода 
-struct date sozdDate(); //Функция создания 
-void letDate(date date1); //Функция рассчета возраста
+struct date sozdDate(int d , int m , int y); //Функция создания 
+int letDate(date date1, date date2); //Функция рассчета дней между датами

@@ -5,9 +5,10 @@
 #include <string.h>
 #include "driver.h"
 
-driver drive;
+
 
 struct driver setDriver() { //Функция ввода 
+	driver drive;
 	printf("\nВведите имя: ");
 	scanf("%s", drive.name);
 	while (getchar() != '\n');
@@ -19,10 +20,11 @@ struct driver setDriver() { //Функция ввода
 	return drive;
 }
 
-struct driver sozdDriver() { //Функция создания
-	strcpy(drive.name,"Иван");
-	strcpy(drive.lastname,"Иванов");
-	drive.bd = sozdDate();
+struct driver sozdDriver(char n[15],char ln[15], date birthdate) { //Функция создания
+	driver drive;
+	strcpy(drive.name,n);
+	strcpy(drive.lastname,ln);
+	drive.bd = birthdate;
 	return drive;
 }
 

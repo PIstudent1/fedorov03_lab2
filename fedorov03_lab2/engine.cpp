@@ -4,10 +4,11 @@
 #include <stdlib.h>
 #include "engine.h"
 
-struct engine eng;
+
 
 struct engine setEngine() //Функция ввода 
 {
+	engine eng;
 	printf("\nВведите серийный номер двигателя: ");
 	while (scanf("%d", &eng.num) != 1) {
 		while (getchar() != '\n');
@@ -24,11 +25,12 @@ struct engine setEngine() //Функция ввода
 	return eng;
 }
 
-struct engine sozdEngine()   //Функция создания 
+struct engine sozdEngine(int n, int pw, date createdate)   //Функция создания 
 {
-	eng.num = 1;
-	eng.pw = 60;
-	eng.cd = sozdDate();
+	engine eng;
+	eng.num = n;
+	eng.pw = pw;
+	eng.cd = createdate;
 	return eng;
 }
 
@@ -40,9 +42,9 @@ void printEngine(engine eng1)  //Функция вывода
 	printDate(eng1.cd);
 }
 
-void kvtEngine(engine eng1) //Функция перевода мощности в кВт
+int kvtEngine(engine eng1) //Функция перевода мощности в кВт
 {
 	double ls=0.736, res=0;
 	res = eng1.pw * ls;
-	printf("\n\nМощность двигателя в кВт: %lg", res);
+	return res;
 }

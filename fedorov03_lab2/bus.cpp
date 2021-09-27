@@ -5,10 +5,11 @@
 #include <string.h>
 #include "bus.h"
 
-bus bu;
+
 
 struct bus setBus() //Функция ввода 
 {
+	bus bu;
 	printf("\n\nВведите номер автобуса: ");
 	while (scanf("%d", &bu.num1) !=1) {
 		while (getchar() != '\n');
@@ -22,11 +23,12 @@ struct bus setBus() //Функция ввода
 	return bu;
 }
 
-struct bus sozdBus() //Функция создания 
+struct bus sozdBus(int n, char ma[15], engine buseng) //Функция создания 
 {
-	bu.num1 = 256;
-	strcpy(bu.mark, "Honda");
-	bu.be = sozdEngine();
+	bus bu;
+	bu.num1 = n;
+	strcpy(bu.mark, ma);
+	bu.be = buseng;
 	return bu;
 }
 

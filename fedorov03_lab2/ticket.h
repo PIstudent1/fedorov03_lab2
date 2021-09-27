@@ -9,6 +9,6 @@ struct ticket {  //Структура билет
 };
 
 struct ticket setTicket(); //Функция ввода 
-struct ticket sozdTicket(); //Функция создания 
+struct ticket sozdTicket(int s, char p[15], char t[15], driver tickdrive); //Функция создания 
 void printTicket(ticket tick1); //Функция вывода
 void saleTicket(ticket tick1); //Функция расчета цены с учетом скидки

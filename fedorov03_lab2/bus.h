@@ -9,5 +9,5 @@ struct bus { //Структура автобус
 };
 
 struct bus setBus(); //Функуция ввода 
-struct bus sozdBus(); //Функция создания 
+struct bus sozdBus(int n, char ma[15], engine buseng); //Функция создания 
 void printBus(bus bus1); //Функция вывода

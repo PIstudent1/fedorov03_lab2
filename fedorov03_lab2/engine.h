@@ -8,6 +8,6 @@ struct engine { //Структура мотор
 };
 
 struct engine setEngine(); //Функция ввода 
-struct engine sozdEngine(); //Функция создания 
+struct engine sozdEngine(int n, int pw, date createdate); //Функция создания 
 void printEngine(engine eng1); //Функция вывода 
-void  kvtEngine(engine eng1); //Функция перевода мощности в кВт
+int kvtEngine(engine eng1); //Функция перевода мощности в кВт
