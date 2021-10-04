@@ -2,13 +2,13 @@
 #include "engine.h"
 
 
-class bus { //Структура автобус
+class bus { //Класс автобус
 private:
-	int num1; //Номер автоуса
+	int num1; //Номер автобуса
 	char mark[15]; //Марка
-	engine be; //Присоединение структуры двигатель
+	engine be; //Присоединение класса двигатель
 public:
-	void setBus(); //Функуция ввода 
-	void sozdBus(int n, char ma[15], engine *buseng); //Функция создания 
-	void printBus(); //Функция вывода
+	void setBus(); //Метод для ввода 
+	void sozdBus(int n, char ma[15], engine *buseng); //Метод для создания 
+	void printBus(); //Метод для вывода
 };

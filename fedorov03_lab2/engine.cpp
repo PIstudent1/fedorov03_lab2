@@ -6,7 +6,7 @@
 
 
 
-void engine::setEngine() //Функция ввода 
+void engine::setEngine() //Метод ввода 
 {
 	printf("\nВведите серийный номер двигателя: ");
 	while (scanf("%d", &this->num) != 1) {
@@ -23,14 +23,14 @@ void engine::setEngine() //Функция ввода
 	this->cd.setDate();
 }
 
-void engine::sozdEngine(int n, int pw, date *createdate)   //Функция создания 
+void engine::sozdEngine(int n, int pw, date *createdate)   //Метод создания 
 {
 	this->num = n;
 	this->pw = pw;
 	this->cd = *createdate;
 }
 
-void engine::printEngine()  //Функция вывода 
+void engine::printEngine()  //Метод вывода 
 {
 	printf("\n\nСерийный номер двигателя: %d", this->num);
 	printf("\n\nМощность двигателя: %d л.с.", this->pw);
@@ -38,7 +38,7 @@ void engine::printEngine()  //Функция вывода
 	this->cd.printDate();
 }
 
-int engine::kvtEngine() //Функция перевода мощности в кВт
+int engine::kvtEngine() //Метод перевода мощности в кВт
 {
 	double ls=0.736, res=0;
 	res = this->pw * ls;

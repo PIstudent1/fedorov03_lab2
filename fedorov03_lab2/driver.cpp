@@ -7,7 +7,7 @@
 
 
 
-void driver::setDriver() { //Функция ввода 
+void driver::setDriver() { //Метод ввода 
 	printf("\nВведите имя: ");
 	scanf("%s", this->name);
 	while (getchar() != '\n');
@@ -19,13 +19,13 @@ void driver::setDriver() { //Функция ввода
 	
 }
 
-void driver::sozdDriver(char n[15],char ln[15], date *birthdate) { //Функция создания
+void driver::sozdDriver(char n[15],char ln[15], date *birthdate) { //Метод создания
 	strcpy(this->name,n);
 	strcpy(this->lastname,ln);
 	this->bd = *birthdate;
 }
 
-void driver::printDriver() { //Функция вывода
+void driver::printDriver() { //Метод вывода
 	printf("\nФамилия Имя: %s %s", this->lastname, this->name);
 	printf("\n\nДата рождения: ");
 	this->bd.printDate();

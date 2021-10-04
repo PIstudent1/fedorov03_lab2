@@ -1,14 +1,14 @@
 #pragma once
 
-class date { //Структура дата
+class date { //Класс дата
 private:
 	int day; //День
 	int month; //Месяц
 	int year; //Год
 public:
-	void setDate(); //Функция ввода 
-	void printDate(); //Функция вывода 
-	void sozdDate(int d, int m, int y); //Функция создания 
-	int letDate(date *date1); //Функция рассчета дней между датами
+	void setDate(); //Метод ввода 
+	void printDate(); //Метод вывода 
+	void sozdDate(int d, int m, int y); //Метод создания 
+	int letDate(date *date1); //Метод рассчета дней между датами
 };
 

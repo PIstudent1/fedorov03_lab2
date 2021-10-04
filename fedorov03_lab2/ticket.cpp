@@ -7,7 +7,7 @@
 
 
 
-void ticket::setTicket() //Функция ввода
+void ticket::setTicket() //Метод ввода
 {
 	printf("\n\nВведите цену билета: ");
 	while (scanf("%d", &this->sum) != 1) {
@@ -24,7 +24,7 @@ void ticket::setTicket() //Функция ввода
 	this->dr.setDriver();
 }
 
-void ticket::sozdTicket(int s, char p[15], char t[15], driver *tickdrive) //Функция создания
+void ticket::sozdTicket(int s, char p[15], char t[15], driver *tickdrive) //Метод создания
 {
 	this->sum = s;
 	strcpy(this->punkt,p);
@@ -32,7 +32,7 @@ void ticket::sozdTicket(int s, char p[15], char t[15], driver *tickdrive) //Функ
 	this->dr = *tickdrive;
 }
 
-void ticket::printTicket() //Функция вывода
+void ticket::printTicket() //Метод вывода
 {
 	printf("\n\nЦена билета: %d", this->sum);
 	printf("\n\nПункт назначения: %s", this->punkt);
@@ -41,7 +41,7 @@ void ticket::printTicket() //Функция вывода
 	this->dr.printDriver();
 }
 
-void ticket::saleTicket() //Функция расчета цены с учетом скидки
+void ticket::saleTicket() //Метод расчета цены с учетом скидки
 {
 	int sl1=0;
 	double sl2=0;

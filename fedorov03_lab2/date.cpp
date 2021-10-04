@@ -8,7 +8,7 @@
 #include "date.h"
 using namespace std;
 
-void date::setDate() { //Функция ввода 
+void date::setDate() { //Метод ввода 
 	printf("\nВведите день: ");
 	while (scanf("%d", &this->day)!=1) {
 		while (getchar() != '\n');
@@ -26,18 +26,18 @@ void date::setDate() { //Функция ввода
 	}
 }
 
-void date::printDate() { //Фукция вывода 
+void date::printDate() { //Метод вывода 
 	printf("%d.%d.%d", this->day, this->month, this->year);
 }
 
 
-void date::sozdDate(int d, int m, int y) { //Функция создания 
+void date::sozdDate(int d, int m, int y) { //Метод создания 
 	this->day = d;
 	this->month = m;
 	this->year = y;
 }
 
-int date::letDate(date *date1){  //Функция рассчета дней между датами
+int date::letDate(date *date1){  //Метод рассчета дней между датами
 	int sum, sum1;
 	if (this->month < 3) {
 		this->year--, this->month += 12;
