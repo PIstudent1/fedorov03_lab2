@@ -8,49 +8,46 @@
 #include "date.h"
 using namespace std;
 
-struct date setDate() { //Функция ввода 
-	date data;
+void date::setDate() { //Функция ввода 
 	printf("\nВведите день: ");
-	while (scanf("%d", &data.day)!=1) {
+	while (scanf("%d", &this->day)!=1) {
 		while (getchar() != '\n');
 		printf("Ошибка. Введите число: ");
 	}
 	printf("\n\nВведите месяц: ");
-	while (scanf("%d", &data.month)!=1) {
+	while (scanf("%d", &this->month)!=1) {
 		while (getchar() != '\n');
 		printf("Ошибка. Введите число: ");
 	}
 	printf("\n\nВведите год: ");
-	while (scanf("%d", &data.year)!=1) {
+	while (scanf("%d", &this->year)!=1) {
 		while (getchar() != '\n');
 		printf("Ошибка. Введите число: ");
 	}
-	return data;
 }
 
-void printDate(date date1) { //Фукция вывода 
-	printf("%d.%d.%d", date1.day, date1.month, date1.year);
+void date::printDate() { //Фукция вывода 
+	printf("%d.%d.%d", this->day, this->month, this->year);
 }
 
 
-struct date sozdDate(int d, int m, int y) { //Функция создания 
-	date data;
-	data.day = d;
-	data.month = m;
-	data.year = y;
-	return data;
+void date::sozdDate(int d, int m, int y) { //Функция создания 
+	this->day = d;
+	this->month = m;
+	this->year = y;
 }
 
-int letDate(date date1, date date2){  //Функция рассчета дней между датами
+int date::letDate(date *date1){  //Функция рассчета дней между датами
 	int sum, sum1;
-	if (date1.month < 3) {
-		date1.year--, date1.month += 12;
+	if (this->month < 3) {
+		this->year--, this->month += 12;
 	}
-	sum=365 * date1.year + date1.year / 4 - date1.year / 100 + date1.year / 400 + (153 * date1.month - 457) / 5 + date1.day - 306;
-	if (date2.month < 3) {
-		date2.year--, date2.month += 12;
+	sum=365 * this->year + this->year / 4 - this->year / 100 + this->year / 400 + (153 * this->month - 457) / 5 + this->day - 306;
+
+	if (date1->month < 3) {
+		date1->year--, date1->month += 12;
 	}
-	sum1 = 365 * date2.year + date2.year / 4 - date2.year / 100 + date2.year / 400 + (153 * date2.month - 457) / 5 + date2.day - 306;
+	sum1 = 365 * date1->year + date1->year / 4 - date1->year / 100 + date1->year / 400 + (153 * date1->month - 457) / 5 + date1->day - 306;
 	if (sum < sum1) {
 		printf("Ошибка. Вторая дата больше первой.");
 	}

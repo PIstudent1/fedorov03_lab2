@@ -7,29 +7,26 @@
 
 
 
-struct driver setDriver() { //Функция ввода 
-	driver drive;
+void driver::setDriver() { //Функция ввода 
 	printf("\nВведите имя: ");
-	scanf("%s", drive.name);
+	scanf("%s", this->name);
 	while (getchar() != '\n');
 	printf("\n\nВведите фамилию: ");
-	scanf("%s", drive.lastname);
+	scanf("%s", this->lastname);
 	while (getchar() != '\n');
 	printf("\n\nВведите дату рождения:\n");
-	drive.bd=setDate();
-	return drive;
+	this->bd.setDate();
+	
 }
 
-struct driver sozdDriver(char n[15],char ln[15], date birthdate) { //Функция создания
-	driver drive;
-	strcpy(drive.name,n);
-	strcpy(drive.lastname,ln);
-	drive.bd = birthdate;
-	return drive;
+void driver::sozdDriver(char n[15],char ln[15], date *birthdate) { //Функция создания
+	strcpy(this->name,n);
+	strcpy(this->lastname,ln);
+	this->bd = *birthdate;
 }
 
-void printDriver(driver drive1) { //Функция вывода
-	printf("\nФамилия Имя: %s %s", drive1.lastname, drive1.name);
+void driver::printDriver() { //Функция вывода
+	printf("\nФамилия Имя: %s %s", this->lastname, this->name);
 	printf("\n\nДата рождения: ");
-	printDate(drive1.bd);
+	this->bd.printDate();
 }

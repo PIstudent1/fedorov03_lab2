@@ -6,45 +6,41 @@
 
 
 
-struct engine setEngine() //Ôóíêöèÿ ââîäà 
+void engine::setEngine() //Ôóíêöèÿ ââîäà 
 {
-	engine eng;
 	printf("\nÂâåäèòå ñåğèéíûé íîìåğ äâèãàòåëÿ: ");
-	while (scanf("%d", &eng.num) != 1) {
+	while (scanf("%d", &this->num) != 1) {
 		while (getchar() != '\n');
 		printf("Îøèáêà. Ââåäèòå ÷èñëî: ");
 	}
 	printf("\n\nÂâåäèòå ìîùíîñòü äâèãàòåëÿ â ë.ñ.: ");
-	while (scanf("%d", &eng.pw) != 1) {
+	while (scanf("%d", &this->pw) != 1) {
 		while (getchar() != '\n');
 		printf("Îøèáêà. Ââåäèòå ÷èñëî: ");
 	}
 	printf("\n\nÂâåäèòå äàòó ïğîèçâîäñòâà:");
 	printf("\n");
-	eng.cd = setDate();
-	return eng;
+	this->cd.setDate();
 }
 
-struct engine sozdEngine(int n, int pw, date createdate)   //Ôóíêöèÿ ñîçäàíèÿ 
+void engine::sozdEngine(int n, int pw, date *createdate)   //Ôóíêöèÿ ñîçäàíèÿ 
 {
-	engine eng;
-	eng.num = n;
-	eng.pw = pw;
-	eng.cd = createdate;
-	return eng;
+	this->num = n;
+	this->pw = pw;
+	this->cd = *createdate;
 }
 
-void printEngine(engine eng1)  //Ôóíêöèÿ âûâîäà 
+void engine::printEngine()  //Ôóíêöèÿ âûâîäà 
 {
-	printf("\n\nÑåğèéíûé íîìåğ äâèãàòåëÿ: %d", eng1.num);
-	printf("\n\nÌîùíîñòü äâèãàòåëÿ: %d ë.ñ.", eng1.pw);
+	printf("\n\nÑåğèéíûé íîìåğ äâèãàòåëÿ: %d", this->num);
+	printf("\n\nÌîùíîñòü äâèãàòåëÿ: %d ë.ñ.", this->pw);
 	printf("\n\nÄàòà ïğîèçâîäñòâà: ");
-	printDate(eng1.cd);
+	this->cd.printDate();
 }
 
-int kvtEngine(engine eng1) //Ôóíêöèÿ ïåğåâîäà ìîùíîñòè â êÂò
+int engine::kvtEngine() //Ôóíêöèÿ ïåğåâîäà ìîùíîñòè â êÂò
 {
 	double ls=0.736, res=0;
-	res = eng1.pw * ls;
+	res = this->pw * ls;
 	return res;
 }

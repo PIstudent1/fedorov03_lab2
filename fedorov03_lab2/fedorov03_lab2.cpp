@@ -19,25 +19,27 @@ int main()
     setlocale(LC_ALL, "Rus");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    date date23, date24;
-    driver drive23;
-    engine eng23;
+    date *date23, date24;
+    driver *drive23;
+    engine *eng23 = new engine [2];
     bus bus23;
     ticket tick23;
-    int a = 0, b=0;
-    date23 = sozdDate(30, 3, 2021); //Функция создания даты
-    date24 = sozdDate(12, 3, 1900); //Функция создания даты
-    a=letDate(date23, date24); //Количество дней между датами
-    printf("\nВведены даты: ");
-    printDate(date23); //Вывод даты
-    printf(" и ");
-    printDate(date24); //Вывод даты
+    int a = 0, b = 0;
+    date23 = new date();
+    date23->sozdDate(20,12,2021);
+    date24.sozdDate(20, 12, 2020);
+    a=date23->letDate(&date24);
+    date23->printDate();
+    printf(" ");
+    date24.printDate();
     printf("\nКоличество дней между датами: %d", a);
-    drive23=setDriver(); //Ввод данных о водителе
-    printDriver(drive23);//Вывод данных о водителе
-    eng23=setEngine(); //Ввод данных о двигателе
-    b=kvtEngine(eng23); //ПЕревод мощности в кВт
+    eng23->setEngine();
+    eng23->printEngine();
+    b=eng23->kvtEngine();
     printf("\nМощность двигателя в кВт: %d", b);
+    delete date23;
+    if (eng23) {
+        delete[] eng23;
+    }
 }
-
 

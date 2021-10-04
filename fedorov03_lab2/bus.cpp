@@ -7,36 +7,32 @@
 
 
 
-struct bus setBus() //Функция ввода 
+void bus::setBus() //функция ввода 
 {
-	bus bu;
-	printf("\n\nВведите номер автобуса: ");
-	while (scanf("%d", &bu.num1) !=1) {
+	printf("\n\nвведите номер автобуса: ");
+	while (scanf("%d", &this->num1) !=1) {
 		while (getchar() != '\n');
-		printf("Ошибка. Введите число: ");
+		printf("ошибка. введите число: ");
 	}
-	printf("\n\nВведите марку автобуса: ");
-	scanf("%s", bu.mark);
+	printf("\n\nвведите марку автобуса: ");
+	scanf("%s", this->mark);
 	while (getchar() != '\n');
-	printf("\n\nВведите данные о двигателе:\n");
-	bu.be = setEngine();
-	return bu;
+	printf("\n\nвведите данные о двигателе:\n");
+	this->be.setEngine();
 }
 
-struct bus sozdBus(int n, char ma[15], engine buseng) //Функция создания 
+void bus::sozdBus(int n, char ma[15], engine *buseng) //функция создания 
 {
-	bus bu;
-	bu.num1 = n;
-	strcpy(bu.mark, ma);
-	bu.be = buseng;
-	return bu;
+	this->num1 = n;
+	strcpy(this->mark, ma);
+	this->be = *buseng;
 }
 
-void printBus(bus bus1) //Функция вывода
+void bus::printBus() //функция вывода
 {
-	printf("\n\nНомер автобуса: %d", bus1.num1);
-	printf("\n\nМарка автобуса: %s", bus1.mark);
-	printf("\n\nДанные о двигателе:");
-	printEngine(bus1.be);
+	printf("\n\nномер автобуса: %d", this->num1);
+	printf("\n\nмарка автобуса: %s", this->mark);
+	printf("\n\nданные о двигателе:");
+	this->be.printEngine();
 }
 
