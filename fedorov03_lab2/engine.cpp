@@ -6,41 +6,41 @@
 
 
 
-void engine::setEngine() //Метод ввода 
+void engine::input() //Метод ввода 
 {
 	printf("\nВведите серийный номер двигателя: ");
-	while (scanf("%d", &this->num) != 1) {
+	while (scanf("%d", &num) != 1) {
 		while (getchar() != '\n');
 		printf("Ошибка. Введите число: ");
 	}
 	printf("\n\nВведите мощность двигателя в л.с.: ");
-	while (scanf("%d", &this->pw) != 1) {
+	while (scanf("%d", &pw) != 1) {
 		while (getchar() != '\n');
 		printf("Ошибка. Введите число: ");
 	}
 	printf("\n\nВведите дату производства:");
 	printf("\n");
-	this->cd.setDate();
+	cd.input();
 }
 
-void engine::sozdEngine(int n, int pw, date *createdate)   //Метод создания 
+void engine::create(int n, int p, date createdate)   //Метод создания 
 {
-	this->num = n;
-	this->pw = pw;
-	this->cd = *createdate;
+	num = n;
+	pw = p;
+	cd = createdate;
 }
 
-void engine::printEngine()  //Метод вывода 
+void engine::output()  //Метод вывода 
 {
-	printf("\n\nСерийный номер двигателя: %d", this->num);
-	printf("\n\nМощность двигателя: %d л.с.", this->pw);
+	printf("\n\nСерийный номер двигателя: %d", num);
+	printf("\n\nМощность двигателя: %d л.с.", pw);
 	printf("\n\nДата производства: ");
-	this->cd.printDate();
+	cd.output();
 }
 
-int engine::kvtEngine() //Метод перевода мощности в кВт
+int engine::tokvt() //Метод перевода мощности в кВт
 {
 	double ls=0.736, res=0;
-	res = this->pw * ls;
+	res = pw * ls;
 	return res;
 }

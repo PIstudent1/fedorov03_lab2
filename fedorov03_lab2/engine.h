@@ -7,8 +7,8 @@ private:
 	int pw;  //Мощность
 	date cd; //Присоединение структуры дата
 public:
-	void setEngine(); //Метод ввода 
-	void sozdEngine(int n, int pw, date *createdate); //Метод создания 
-	void printEngine(); //Метод вывода 
-	int kvtEngine(); //Метод перевода мощности в кВт
+	void input(); //Метод ввода 
+	void create(int n, int p, date createdate); //Метод создания 
+	void output(); //Метод вывода 
+	int tokvt(); //Метод перевода мощности в кВт
 };

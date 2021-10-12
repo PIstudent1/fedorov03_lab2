@@ -7,32 +7,32 @@
 
 
 
-void bus::setBus() //метод ввода 
+void bus::input() //метод ввода 
 {
 	printf("\n\nвведите номер автобуса: ");
-	while (scanf("%d", &this->num1) !=1) {
+	while (scanf("%d", &num1) !=1) {
 		while (getchar() != '\n');
 		printf("ошибка. введите число: ");
 	}
 	printf("\n\nвведите марку автобуса: ");
-	scanf("%s", this->mark);
+	scanf("%s", mark);
 	while (getchar() != '\n');
 	printf("\n\nвведите данные о двигателе:\n");
-	this->be.setEngine();
+	be.input();
 }
 
-void bus::sozdBus(int n, char ma[15], engine *buseng) //метод создания 
+void bus::create(int n, char ma[15], engine buseng) //метод создания 
 {
-	this->num1 = n;
-	strcpy(this->mark, ma);
-	this->be = *buseng;
+	num1 = n;
+	strcpy(mark, ma);
+	be = buseng;
 }
 
-void bus::printBus() //метод вывода
+void bus::output() //метод вывода
 {
-	printf("\n\nномер автобуса: %d", this->num1);
-	printf("\n\nмарка автобуса: %s", this->mark);
+	printf("\n\nномер автобуса: %d", num1);
+	printf("\n\nмарка автобуса: %s", mark);
 	printf("\n\nданные о двигателе:");
-	this->be.printEngine();
+	be.output();
 }
 

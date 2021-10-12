@@ -7,41 +7,41 @@
 
 
 
-void ticket::setTicket() //Метод ввода
+void ticket::input() //Метод ввода
 {
 	printf("\n\nВведите цену билета: ");
-	while (scanf("%d", &this->sum) != 1) {
+	while (scanf("%d", &sum) != 1) {
 		while (getchar() != '\n');
 		printf("Ошибка. Введите число: ");
 	}
 	printf("\n\nВведите пункт назначения: ");
-	scanf("%s", this->punkt);
+	scanf("%s", punkt);
 	while (getchar() != '\n');
 	printf("\n\nВведите время отправления: ");
-	scanf("%s", this->time);
+	scanf("%s", time);
 	while (getchar() != '\n');
 	printf("\n\nВведите информацию о водителе:");
-	this->dr.setDriver();
+	dr.input();
 }
 
-void ticket::sozdTicket(int s, char p[15], char t[15], driver *tickdrive) //Метод создания
+void ticket::create(int s, char p[15], char t[15], driver tickdrive) //Метод создания
 {
-	this->sum = s;
-	strcpy(this->punkt,p);
-	strcpy(this->time,t);
-	this->dr = *tickdrive;
+	sum = s;
+	strcpy(punkt,p);
+	strcpy(time,t);
+	dr = tickdrive;
 }
 
-void ticket::printTicket() //Метод вывода
+void ticket::output() //Метод вывода
 {
-	printf("\n\nЦена билета: %d", this->sum);
-	printf("\n\nПункт назначения: %s", this->punkt);
-	printf("\n\nВремя отправления: %s", this->time);
+	printf("\n\nЦена билета: %d", sum);
+	printf("\n\nПункт назначения: %s", punkt);
+	printf("\n\nВремя отправления: %s", time);
 	printf("\n\nИнформация о водителе: ");
-	this->dr.printDriver();
+	dr.output();
 }
 
-void ticket::saleTicket() //Метод расчета цены с учетом скидки
+void ticket::sale() //Метод расчета цены с учетом скидки
 {
 	int sl1=0;
 	double sl2=0;

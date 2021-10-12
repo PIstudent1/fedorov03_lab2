@@ -7,26 +7,26 @@
 
 
 
-void driver::setDriver() { //Метод ввода 
+void driver::input() { //Метод ввода 
 	printf("\nВведите имя: ");
-	scanf("%s", this->name);
+	scanf("%s", name);
 	while (getchar() != '\n');
 	printf("\n\nВведите фамилию: ");
-	scanf("%s", this->lastname);
+	scanf("%s", lastname);
 	while (getchar() != '\n');
 	printf("\n\nВведите дату рождения:\n");
-	this->bd.setDate();
+	bd.input();
 	
 }
 
-void driver::sozdDriver(char n[15],char ln[15], date *birthdate) { //Метод создания
-	strcpy(this->name,n);
-	strcpy(this->lastname,ln);
-	this->bd = *birthdate;
+void driver::create(char n[15],char ln[15], date birthdate) { //Метод создания
+	strcpy(name,n);
+	strcpy(lastname,ln);
+	bd = birthdate;
 }
 
-void driver::printDriver() { //Метод вывода
-	printf("\nФамилия Имя: %s %s", this->lastname, this->name);
+void driver::output() { //Метод вывода
+	printf("\nФамилия Имя: %s %s", lastname, name);
 	printf("\n\nДата рождения: ");
-	this->bd.printDate();
+	bd.output();
 }

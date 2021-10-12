@@ -8,8 +8,8 @@ private:
 	char time[15]; //Время отправления
 	driver dr; //Присоединение класса водитель
 public:
-	void setTicket(); //Метод для ввода 
-	void sozdTicket(int s, char p[15], char t[15], driver *tickdrive); //Метод для создания 
-	void printTicket(); //Метод для  вывода
-	void saleTicket(); //Метод для расчета цены с учетом скидки
+	void input(); //Метод для ввода 
+	void create(int s, char p[15], char t[15], driver tickdrive); //Метод для создания 
+	void output(); //Метод для  вывода
+	void sale(); //Метод для расчета цены с учетом скидки
 };

@@ -26,16 +26,16 @@ int main()
     ticket tick23;
     int a = 0, b = 0;
     date23 = new date();
-    date23->sozdDate(20,12,2021);
-    date24.sozdDate(20, 12, 2020);
-    a=date23->letDate(&date24);
-    date23->printDate();
+    date23->create(20,12,2021);
+    date24.create(20, 12, 2020);
+    a=date23->indays(date24);
+    date23->output();
     printf(" ");
-    date24.printDate();
+    date24.output();
     printf("\nКоличество дней между датами: %d", a);
-    eng23->setEngine();
-    eng23->printEngine();
-    b=eng23->kvtEngine();
+    eng23->input();
+    eng23->output();
+    b=eng23->tokvt();
     printf("\nМощность двигателя в кВт: %d", b);
     delete date23;
     if (eng23) {
