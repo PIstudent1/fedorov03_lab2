@@ -8,7 +8,7 @@ private:
 public:
 	void input(); //Метод ввода 
 	void output(); //Метод вывода 
-	void create(int d, int m, int y); //Метод создания 
+	void init(int day1, int month1, int year1); //Метод создания 
 	int indays(date date1); //Метод рассчета дней между датами
 };
 

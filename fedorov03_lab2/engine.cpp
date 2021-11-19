@@ -14,33 +14,43 @@ void engine::input() //Метод ввода
 		printf("Ошибка. Введите число: ");
 	}
 	printf("\n\nВведите мощность двигателя в л.с.: ");
-	while (scanf("%d", &pw) != 1) {
+	while (scanf("%d", &power) != 1) {
 		while (getchar() != '\n');
 		printf("Ошибка. Введите число: ");
 	}
 	printf("\n\nВведите дату производства:");
 	printf("\n");
-	cd.input();
+	createdate.input();
 }
 
-void engine::create(int n, int p, date createdate)   //Метод создания 
+void engine::init(int num1, int power1, date createdate1)   //Метод создания 
 {
-	num = n;
-	pw = p;
-	cd = createdate;
+	if (num1 < 0) {
+		num = 0;
+	}
+	else {
+		num = num1;
+	}
+	if (power1 < 0) {
+		power = 0;
+	}
+	else {
+		power = power1;
+	}
+	createdate = createdate1;
 }
 
 void engine::output()  //Метод вывода 
 {
 	printf("\n\nСерийный номер двигателя: %d", num);
-	printf("\n\nМощность двигателя: %d л.с.", pw);
+	printf("\n\nМощность двигателя: %d л.с.", power);
 	printf("\n\nДата производства: ");
-	cd.output();
+	createdate.output();
 }
 
-int engine::tokvt() //Метод перевода мощности в кВт
+int* engine::tokvt() //Метод перевода мощности в кВт
 {
 	double ls=0.736, res=0;
-	res = pw * ls;
-	return res;
+	res = power * ls;
+	return &res;
 }

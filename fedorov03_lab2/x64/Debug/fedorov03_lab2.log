@@ -1,6 +1,6 @@
 ﻿  fedorov03_lab2.cpp
-C:\Users\Mi\source\repos\fedorov03_lab3\fedorov03_lab2\fedorov03_lab2.cpp(26,12): warning C4101: tick23: неиспользованная локальная переменная
-C:\Users\Mi\source\repos\fedorov03_lab3\fedorov03_lab2\fedorov03_lab2.cpp(23,13): warning C4101: drive23: неиспользованная локальная переменная
+C:\Users\Mi\source\repos\fedorov03_lab3\fedorov03_lab2\fedorov03_lab2.cpp(22,11): warning C4101: date23: неиспользованная локальная переменная
+C:\Users\Mi\source\repos\fedorov03_lab3\fedorov03_lab2\fedorov03_lab2.cpp(23,12): warning C4101: drive23: неиспользованная локальная переменная
 C:\Users\Mi\source\repos\fedorov03_lab3\fedorov03_lab2\fedorov03_lab2.cpp(25,9): warning C4101: bus23: неиспользованная локальная переменная
   ticket.cpp
   Создание кода...

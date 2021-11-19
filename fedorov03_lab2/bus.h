@@ -1,14 +1,14 @@
 #pragma once
 #include "engine.h"
-
+#define N 15
 
 class bus { //Класс автобус
 private:
-	int num1; //Номер автобуса
-	char mark[15]; //Марка
-	engine be; //Присоединение класса двигатель
+	int num; //Номер автобуса
+	char *mark; //Марка
+	engine busengine; //Присоединение класса двигатель
 public:
 	void input(); //Метод для ввода 
-	void create(int n, char ma[15], engine buseng); //Метод для создания 
+	void init(int num1, const char mark1[N], engine busengine1); //Метод для создания 
 	void output(); //Метод для вывода
 };

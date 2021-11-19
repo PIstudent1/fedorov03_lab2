@@ -4,11 +4,11 @@
 
 class driver { //Класс водитель
 private:
-	char name[N]; //Имя
-	char lastname[N]; //Фамилия
-	date bd; //Присоединение структуры дата
+	char *name; //Имя
+	char *lastname; //Фамилия
+	date birthdate; //Присоединение структуры дата
 public:
 	void input(); //Метод ввода
 	void output(); //Метод вывода 
-	void create(char n[15], char ln[15], date birthdate); //Метод создания
+	void init(const char name1[N], const char lastname1[N], date birthdate1); //Метод создания
 };

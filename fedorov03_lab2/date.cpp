@@ -28,10 +28,25 @@ void date::output() { //Метод вывода
 	printf("%d.%d.%d", day, month, year);
 }
 
-void date::create(int d, int m, int y) { //Метод создания 
-	day = d;
-	month = m;
-	year = y;
+void date::init(int day1, int month1, int year1) { //Метод создания 
+	if (day1 < 0 || day1>31) {
+		day = 0;
+	}
+	else {
+		day = day1;
+	}
+	if (month1 < 0 || month1>12) {
+		month = 0;
+	}
+	else {
+		month = month1;
+	}
+	if (year<0) {
+		year = 0;
+	}
+	else {
+		year = year1;
+	}
 }
 
 int date::indays(date date1){  //Метод рассчета дней между датами

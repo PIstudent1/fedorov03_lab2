@@ -20,14 +20,17 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     date *date23, date24;
-    driver *drive23;
+    driver drive23;
     engine *eng23 = new engine [2];
     bus bus23;
     ticket tick23;
     int a = 0, b = 0;
+    date24.init(20, 12, 2020);
+    drive23.init("Иван", "Иванов", date24);
+    tick23.init(345, "Киев", 12, 55, drive23);
     date23 = new date();
-    date23->create(20,12,2021);
-    date24.create(20, 12, 2020);
+    date23->init(20,12,2021);
+    date24.init(20, 12, 2020);
     a=date23->indays(date24);
     date23->output();
     printf(" ");
@@ -42,4 +45,5 @@ int main()
         delete[] eng23;
     }
 }
+
 
