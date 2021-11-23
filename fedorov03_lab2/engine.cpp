@@ -48,9 +48,10 @@ void engine::output()  //Метод вывода
 	createdate.output();
 }
 
-int* engine::tokvt() //Метод перевода мощности в кВт
+int engine::tokvt() //Метод перевода мощности в кВт
 {
 	double ls=0.736, res=0;
 	res = power * ls;
-	return &res;
+	return res;
 }
+

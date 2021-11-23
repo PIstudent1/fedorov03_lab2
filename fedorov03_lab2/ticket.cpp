@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <string>
 #include "ticket.h" //Присоединение заголовочного файла
 
 
@@ -14,12 +15,9 @@ void ticket::input() //Метод ввода
 		while (getchar() != '\n');
 		printf("Ошибка. Введите число: ");
 	}
-	char punktcpy[N];
 	printf("\n\nВведите пункт назначения: ");
-	scanf("%s", punktcpy);
+	cin >> punkt;
 	while (getchar() != '\n');
-	punkt = new char[strlen(punktcpy)];
-	strcpy(punkt, punktcpy);
 	printf("\n\nВведите время отправления: ");
 	printf("\n\nВведите часы: ");
 	while (scanf("%d", &hours) != 1) {
@@ -35,43 +33,43 @@ void ticket::input() //Метод ввода
 	ticketdrive.input();
 }
 
-void ticket::init(int sum1, const char punkt1[N], int hours1, int minutes1, driver ticketdrive1) //Метод создания
+void ticket::init(int sum, std::string punkt, int hours, int minutes, driver ticketdrive) //Метод создания
 {
 	int f = 0;
-	if (sum1 < 0) {
-		sum = 0;
+	if (sum < 0) {
+		this->sum = 0;
 	}
 	else {
-		sum = sum1;
+		this->sum = sum;
 	}
-	punkt = new char[strlen(punkt1)];
-	for (int i = 0; i <= strlen(punkt1); i++) {
-		if (punkt1[i] == '\0') {
-			strcpy(punkt, punkt1);
+	for (int i = 0; i <= punkt.size(); i++) {
+		if (punkt[i] == '\0') {
+			this->punkt = punkt;
 		}
 		else {
-			strcpy(punkt, "-");
+			this->punkt = "-";
 		}
 	}
-	if (hours1 < 0 || hours1 > 23) {
-		hours = 0;
+	if (hours < 0 || hours > 23) {
+		this->hours = 0;
 	}
 	else {
-		hours = hours1;
+		this->hours = hours;
 	}
-	if (minutes1 < 0 || minutes1 > 59) {
-		minutes = 0;
+	if (minutes < 0 || minutes > 59) {
+		this->minutes = 0;
 	}
 	else {
-		minutes = minutes1;
+		this->minutes = minutes;
 	}
-	ticketdrive = ticketdrive1;
+	this->ticketdrive = ticketdrive;
 }
 
 void ticket::output() //Метод вывода
 {
 	printf("\n\nЦена билета: %d", sum);
-	printf("\n\nПункт назначения: %s", punkt);
+	printf("\n\nПункт назначения: ");
+	cout << punkt << endl;
 	printf("\n\nВремя отправления: %d:%d", hours, minutes);
 	printf("\n\nИнформация о водителе:\n ");
 	ticketdrive.output();

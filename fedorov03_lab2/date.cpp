@@ -41,7 +41,7 @@ void date::init(int day1, int month1, int year1) { //Метод создания
 	else {
 		month = month1;
 	}
-	if (year<0) {
+	if (year1 < 0) {
 		year = 0;
 	}
 	else {
@@ -49,7 +49,7 @@ void date::init(int day1, int month1, int year1) { //Метод создания
 	}
 }
 
-int date::indays(date date1){  //Метод рассчета дней между датами
+int* date::indays(date &date1){  //Метод рассчета дней, месяцев, лет между датами
 	int sum, sum1;
 	if (this->month < 3) {
 		this->year--, this->month += 12;
@@ -64,6 +64,36 @@ int date::indays(date date1){  //Метод рассчета дней между датами
 		printf("Ошибка. Вторая дата больше первой.");
 	}
 	else {
-		return sum - sum1;
+		int mas[] = { sum - sum1, (sum - sum1) / 30, this->year - date1.year };
+		return mas;
 	}
+}
+
+void reset(date &date) {
+	date.day = 0;
+	date.month = 0;
+	date.year = 0;
+}
+
+date date::operator+(int day) {
+	if ((this->day + day)>31) {
+		printf("\nКоличество дней не может быть больше 31!");
+		return date(this->day+0,this->month,this->year);
+	}
+	else {
+		return date(this->day + day, this->month, this->year);
+	}
+}
+
+date::date(int day, int month, int year) {
+
+	this->day = day;
+	this->month = month;
+	this->year = year;
+
+}
+
+date& date::operator++() {
+	year += 5;
+	return *this;
 }

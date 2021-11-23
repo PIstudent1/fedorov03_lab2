@@ -10,5 +10,5 @@ public:
 	void input(); //Метод ввода 
 	void init(int num1, int power1, date createdate1); //Метод создания 
 	void output(); //Метод вывода 
-	int* tokvt(); //Метод перевода мощности в кВт
+	int tokvt(); //Метод перевода мощности в кВт
 };

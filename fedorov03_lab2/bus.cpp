@@ -3,8 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <iostream>
 #include "bus.h"
-
+#include <string>
+using namespace std;
 
 
 void bus::input() //метод ввода 
@@ -15,37 +17,37 @@ void bus::input() //метод ввода
 		printf("ошибка. введите число: ");
 	}
 	printf("\n\nвведите марку автобуса: ");
-	scanf("%s", mark);
+	cin >> mark;
 	while (getchar() != '\n');
 	printf("\n\nвведите данные о двигателе:\n");
 	busengine.input();
 }
 
-void bus::init(int num1, const char mark1[N], engine busengine1) //метод создания 
+void bus::init(int num, std::string mark, engine busengine) //метод создания 
 {
-	if (num1 < 0) {
-		num = 0;
+	if (num < 0) {
+		this->num = 0;
 	}
 
 	else {
-		num = num1;
+		this->num = num;
 	}
-	mark = new char[strlen(mark1)];
-	for (int i = 0; i <= strlen(mark1); i++) {
-		if (mark1[i] == '\0') {
-			strcpy(mark, mark1);
+	for (int i = 0; i <= mark.size(); i++) {
+		if (mark[i] == '\0') {
+			this->mark = mark;
 		}
 		else {
-			strcpy(mark, "-");
+			this->mark = "-";
 		}
 	}
-	busengine = busengine1;
+	this->busengine = busengine;
 }
 
 void bus::output() //метод вывода
 {
 	printf("\n\nномер автобуса: %d", num);
-	printf("\n\nмарка автобуса: %s", mark);
+	printf("\n\nмарка автобуса: ");
+	cout << mark << endl;
 	printf("\n\nданные о двигателе:");
 	busengine.output();
 }
