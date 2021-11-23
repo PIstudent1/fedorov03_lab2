@@ -23,8 +23,8 @@ int main()
     int a = 0;
     date24.init(11, 12, 1990);
     date24 = date24 + 12;
+    date24++;
     date24.output();
-  
 }
 
 

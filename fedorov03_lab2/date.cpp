@@ -75,7 +75,7 @@ void reset(date &date) {
 	date.year = 0;
 }
 
-date date::operator+(int day) {
+date date::operator+(int day) { //перегрузка '+'
 	if ((this->day + day)>31) {
 		printf("\nКоличество дней не может быть больше 31!");
 		return date(this->day+0,this->month,this->year);
@@ -93,7 +93,13 @@ date::date(int day, int month, int year) {
 
 }
 
-date& date::operator++() {
-	year += 5;
+date& date::operator++() { // пергрузка '++' префиксный
+	this->year += 5;
 	return *this;
+}
+
+date date::operator++(int) { //пергрузка '++' постфиксный
+	date data = *this;
+	++*this;
+	return data;
 }

@@ -14,6 +14,5 @@ public:
 	date operator+(int day);
 	date(int day,int month, int year);
 	date& operator++();
-	date operator++();
+	date operator++(int);
 };
-
