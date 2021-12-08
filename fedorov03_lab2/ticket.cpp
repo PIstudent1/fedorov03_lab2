@@ -31,6 +31,8 @@ void ticket::input() //Метод ввода
 	}
 	printf("\n\nВведите информацию о водителе:");
 	ticketdrive.input();
+	count++;
+	id = count;
 }
 
 void ticket::init(int sum, std::string punkt, int hours, int minutes, driver ticketdrive) //Метод создания
@@ -63,10 +65,14 @@ void ticket::init(int sum, std::string punkt, int hours, int minutes, driver tic
 		this->minutes = minutes;
 	}
 	this->ticketdrive = ticketdrive;
+	count++;
+	id = count;
 }
 
 void ticket::output() //Метод вывода
 {
+	printf("\n\nИнформация о билете: ");
+	printf("\n\nId: %d", id);
 	printf("\n\nЦена билета: %d", sum);
 	printf("\n\nПункт назначения: ");
 	cout << punkt << endl;
@@ -83,4 +89,11 @@ void ticket::sale() //Метод расчета цены с учетом скидки
 	scanf("%d", &sl1);
 	sl2 = this->sum - (this->sum * sl1 / 100);
 	printf("\n\nЦена с учетом скидки %d процент(ов): %lg",sl1, sl2 );
+}
+
+static void changeDestination(ticket& ticket, std::string punkt) {
+
+	if (punkt.size() != 0) {
+		ticket.punkt = punkt;
+	}
 }

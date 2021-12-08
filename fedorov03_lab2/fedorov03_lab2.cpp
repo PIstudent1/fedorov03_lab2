@@ -19,12 +19,12 @@ int main()
     setlocale(LC_ALL, "Rus");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    date date24(0,0,0);
-    int a = 0;
+    date date24(0,0,0), date23(0,0,0);
     date24.init(11, 12, 1990);
     date24 = date24 + 12;
     date24++;
     date24.output();
+    
 }
 
 
