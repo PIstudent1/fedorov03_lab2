@@ -23,7 +23,7 @@ void bus::input() //метод ввода
 	busengine.input();
 }
 
-void bus::init(int num, std::string mark, engine busengine) //метод создани€ 
+bus::bus(int num, std::string mark, engine busengine) // онструктор с параметрами
 {
 	if (num < 0) {
 		this->num = 0;
@@ -41,6 +41,12 @@ void bus::init(int num, std::string mark, engine busengine) //метод создани€
 		}
 	}
 	this->busengine = busengine;
+}
+
+bus::bus() {};// онструктор без параметров
+
+bus::bus(int value) { // онструктор с одним параметром 
+	this->num = value;
 }
 
 void bus::output() //метод вывода

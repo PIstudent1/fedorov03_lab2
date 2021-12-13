@@ -19,12 +19,10 @@ int main()
     setlocale(LC_ALL, "Rus");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    date date24(0,0,0), date23(0,0,0);
-    date24.init(11, 12, 1990);
-    date24 = date24 + 12;
-    date24++;
-    date24.output();
-    
+    date date23[3] = { date(12), date(13), date(14)};
+    for (int i = 0; i < 3; i++) {
+        date23[i].output();
+    }
 }
 
 

@@ -35,7 +35,7 @@ void ticket::input() //Метод ввода
 	id = count;
 }
 
-void ticket::init(int sum, std::string punkt, int hours, int minutes, driver ticketdrive) //Метод создания
+ticket::ticket(int sum, std::string punkt, int hours, int minutes, driver ticketdrive) //Метод создания
 {
 	int f = 0;
 	if (sum < 0) {
@@ -69,6 +69,12 @@ void ticket::init(int sum, std::string punkt, int hours, int minutes, driver tic
 	id = count;
 }
 
+ticket::ticket() {}; //Конструктор без параметров
+
+ticket::ticket(int value) {
+	this->sum = value;
+}
+
 void ticket::output() //Метод вывода
 {
 	printf("\n\nИнформация о билете: ");
@@ -91,7 +97,7 @@ void ticket::sale() //Метод расчета цены с учетом скидки
 	printf("\n\nЦена с учетом скидки %d процент(ов): %lg",sl1, sl2 );
 }
 
-static void changeDestination(ticket& ticket, std::string punkt) {
+void ticket::changeDestination(ticket& ticket, std::string punkt) { // Статический метод
 
 	if (punkt.size() != 0) {
 		ticket.punkt = punkt;

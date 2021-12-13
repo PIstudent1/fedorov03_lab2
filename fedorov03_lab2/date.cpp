@@ -28,7 +28,7 @@ void date::output() { //Метод вывода
 	printf("%d.%d.%d", day, month, year);
 }
 
-void date::init(int day1, int month1, int year1) { //Метод создания 
+date::date(int day1, int month1, int year1) { //Конструктор с параметрами 
 	if (day1 < 0 || day1>31) {
 		day = 0;
 	}
@@ -47,6 +47,14 @@ void date::init(int day1, int month1, int year1) { //Метод создания
 	else {
 		year = year1;
 	}
+}
+
+date::date(){} //Конструктор без параметров
+
+date::date(int value){ //Конструктор с одним параметром
+	this->day = value;
+	this->month = value;
+	this->year = value;
 }
 
 int* date::indays(date &date1){  //Метод рассчета дней, месяцев, лет между датами
@@ -69,6 +77,7 @@ int* date::indays(date &date1){  //Метод рассчета дней, месяцев, лет между датам
 	}
 }
 
+
 void reset(date &date) {
 	date.day = 0;
 	date.month = 0;
@@ -85,13 +94,7 @@ date date::operator+(int day) { //перегрузка '+'
 	}
 }
 
-date::date(int day, int month, int year) {
 
-	this->day = day;
-	this->month = month;
-	this->year = year;
-
-}
 
 date& date::operator++() { // пергрузка '++' префиксный
 	this->year += 5;

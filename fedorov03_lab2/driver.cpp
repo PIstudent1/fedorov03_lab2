@@ -20,7 +20,7 @@ void driver::input() { //Метод ввода
 	
 }
 
-void driver::init(std::string name, std::string lastname, date birthdate) { //Метод создания
+driver::driver(std::string name, std::string lastname, date birthdate) { //Конструктор с параметрами
 	
 	for (int i = 0; i <= name.size(); i++) {
 		if (name[i] == '\0') {
@@ -39,6 +39,12 @@ void driver::init(std::string name, std::string lastname, date birthdate) { //Ме
 		}
 	}
 	this->birthdate = birthdate;
+}
+
+driver::driver() {};      //Конструктор без параметров
+
+driver::driver(std::string value) { //Конструктор с одним параметром 
+	this->name = value;
 }
 
 void driver::output() { //Метод вывода

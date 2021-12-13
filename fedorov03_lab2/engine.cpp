@@ -23,7 +23,7 @@ void engine::input() //Метод ввода
 	createdate.input();
 }
 
-void engine::init(int num1, int power1, date createdate1)   //Метод создания 
+engine::engine(int num1, int power1, date createdate1)   //Конструктор с парметрами
 {
 	if (num1 < 0) {
 		num = 0;
@@ -39,6 +39,13 @@ void engine::init(int num1, int power1, date createdate1)   //Метод создания
 	}
 	createdate = createdate1;
 }
+
+engine::engine() {} // Конструктор без параметров
+
+engine::engine(int value) { //Конструктор с одним параметром
+	this->num = value;
+
+};
 
 void engine::output()  //Метод вывода 
 {

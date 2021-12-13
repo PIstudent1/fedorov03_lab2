@@ -11,6 +11,8 @@ private:
 	engine busengine; //Присоединение класса двигатель
 public:
 	void input(); //Метод для ввода 
-	void init(int num, std::string mark, engine busengine); //Метод для создания 
+	bus(int num, std::string mark, engine busengine); //Конструктор с параметрами
+	bus();//Конструктор без параметров
+	bus(int value);//Конструктор с одним параметром
 	void output(); //Метод для вывода
 };

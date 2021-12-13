@@ -12,5 +12,7 @@ private:
 public:
 	void input(); //Метод ввода
 	void output(); //Метод вывода 
-	void init(std::string name, std::string lastname, date birthdate); //Метод создания
+	driver(std::string name, std::string lastname, date birthdate); //Конструктор с парметрами
+	driver();
+	driver(std::string value);
 };

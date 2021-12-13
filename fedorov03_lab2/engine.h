@@ -8,7 +8,9 @@ private:
 	date createdate; //Присоединение структуры дата
 public:
 	void input(); //Метод ввода 
-	void init(int num1, int power1, date createdate1); //Метод создания 
+	engine(int num1, int power1, date createdate1); //Конструктор с праметрами
+	engine();//Конструктор без параметров
+	engine(int value);
 	void output(); //Метод вывода 
 	int tokvt(); //Метод перевода мощности в кВт
 };

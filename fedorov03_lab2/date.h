@@ -8,11 +8,12 @@ private:
 public:
 	void input(); //Метод ввода 
 	void output(); //Метод вывода 
-	void init(int day1, int month1, int year1); //Метод создания 
+	date(int day1, int month1, int year1); //Конструктор с параметрами
+	date();//Конструктор без параметров
+	date(int value);//Конструктор с одним параметром
 	int* indays(date &date1); //Метод рассчета дней между датами
 	friend void reset(date& date);
 	date operator+(int day);
-	date(int day,int month, int year);
 	date& operator++();
 	date operator++(int);
 };
