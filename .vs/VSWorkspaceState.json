@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\fedorov03_lab2"
+    "\\fedorov03_lab2",
+    "\\x64",
+    "\\x64\\Debug"
   ],
-  "SelectedNode": "\\fedorov03_lab2\\fedorov03_lab2.cpp",
+  "SelectedNode": "\\fedorov03_lab2\\driver.cpp",
   "PreviewInSolutionExplorer": false
 }

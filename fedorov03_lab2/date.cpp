@@ -6,6 +6,9 @@
 #include "date.h"
 using namespace std;
 
+
+
+
 void date::input() { //Метод ввода 
 	printf("\nВведите день: ");
 	while (scanf("%d", &day)!=1) {
@@ -51,11 +54,13 @@ date::date(int day1, int month1, int year1) { //Конструктор с параметрами
 
 date::date(){} //Конструктор без параметров
 
+
 date::date(int value){ //Конструктор с одним параметром
 	this->day = value;
 	this->month = value;
 	this->year = value;
 }
+
 
 int* date::indays(date &date1){  //Метод рассчета дней, месяцев, лет между датами
 	int sum, sum1;

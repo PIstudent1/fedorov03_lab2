@@ -41,7 +41,7 @@ driver::driver(std::string name, std::string lastname, date birthdate) { //Конст
 	this->birthdate = birthdate;
 }
 
-driver::driver() {};      //Конструктор без параметров
+driver::driver(){};      //Конструктор без параметров
 
 driver::driver(std::string value) { //Конструктор с одним параметром 
 	this->name = value;
@@ -54,4 +54,36 @@ void driver::output() { //Метод вывода
 	cout << lastname << endl;
 	printf("\n\nДата рождения: ");
 	birthdate.output();
+}
+
+driver::driver(const driver& driver) { //Конструктор копирования
+	for (int i = 0; i <= name.size(); i++) {
+		if (name[i] == '\0') {
+			name = driver.name;
+		}
+	}
+	for (int i = 0; i <= lastname.size(); i++) {
+		if (lastname[i] == '\0') {
+			lastname = driver.lastname; 
+		}
+	}
+	birthdate = driver.birthdate;
+}
+
+driver& driver::operator=(const driver& driver) { //оператор присваивания
+	if (this == &driver) {
+		return *this;
+	}
+	for (int i = 0; i <= name.size(); i++) {
+		if (name[i] == '\0') {
+			name = driver.name;
+		}
+	}
+	for (int i = 0; i <= lastname.size(); i++) {
+		if (lastname[i] == '\0') {
+			lastname = driver.lastname;
+		}
+	}
+	birthdate = driver.birthdate;
+	return *this;
 }

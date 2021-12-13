@@ -15,4 +15,6 @@ public:
 	driver(std::string name, std::string lastname, date birthdate); //Конструктор с парметрами
 	driver();
 	driver(std::string value);
+	driver(const driver& driver);
+	driver& operator=(const driver& driver);
 };

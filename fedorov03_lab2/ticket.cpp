@@ -7,9 +7,11 @@
 #include "ticket.h" //Присоединение заголовочного файла
 
 
-
+int ticket::count = 0;
 void ticket::input() //Метод ввода
 {
+	count++;
+	id = count;
 	printf("\n\nВведите цену билета: ");
 	while (scanf("%d", &sum) != 1) {
 		while (getchar() != '\n');
@@ -31,8 +33,6 @@ void ticket::input() //Метод ввода
 	}
 	printf("\n\nВведите информацию о водителе:");
 	ticketdrive.input();
-	count++;
-	id = count;
 }
 
 ticket::ticket(int sum, std::string punkt, int hours, int minutes, driver ticketdrive) //Метод создания

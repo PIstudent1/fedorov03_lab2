@@ -23,6 +23,14 @@ int main()
     for (int i = 0; i < 3; i++) {
         date23[i].output();
     }
+    date* date24 = new date();
+    date date25 = date();
+    date25 = date(25,12,2021);
+    date24 = new date(12,12,2021);
+    driver driver1 = driver("Иван","Иванов",date25);
+    driver driver2 = driver(driver1);
+    driver1.output();
+    driver2.output();
 }
 
 
