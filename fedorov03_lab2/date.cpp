@@ -7,24 +7,53 @@
 using namespace std;
 
 
-
-
 void date::input() { //Метод ввода 
-	printf("\nВведите день: ");
-	while (scanf("%d", &day)!=1) {
+	int input;
+	do {
+		printf("\nВведите день: ");
+		scanf("%d", &input);
 		while (getchar() != '\n');
-		printf("Ошибка. Введите число: ");
-	}
-	printf("\n\nВведите месяц: ");
-	while (scanf("%d", &month)!=1) {
+		try {
+			if (input < 1 || input > 31) {
+				throw - 1;
+			}
+		}
+		catch(...){
+			printf("\nОшибка ввода. Повторите ввод.");
+			input = -1;
+		}
+	} while (input == -1);
+	this->day = input;
+	do {
+		printf("\nВведите месяц: ");
+		scanf("%d", &input);
+		while (getchar() != '\n');	
+		try {
+			if (input < 1 || input > 12) {
+				throw - 1;
+			}
+		}
+		catch (...) {
+			printf("\nОшибка ввода. Повторите ввод.");
+			input = -1;
+		}
+	} while (input == -1);
+	this->month = input;
+	do {
+		printf("\nВведите год: ");
+		scanf("%d", &input);
 		while (getchar() != '\n');
-		printf("Ошибка. Введите число: ");
-	}
-	printf("\n\nВведите год: ");
-	while (scanf("%d", &year)!=1) {
-		while (getchar() != '\n');
-		printf("Ошибка. Введите число: ");
-	}
+		try {
+			if (input < 1 || input > 2021) {
+				throw - 1;
+			}
+		}
+		catch (...) {
+			printf("\nОшибка ввода. Повторите ввод.");
+			input = -1;
+		}
+	} while (input == -1);
+	this->year = input;
 }
 
 void date::output() { //Метод вывода 
@@ -32,19 +61,19 @@ void date::output() { //Метод вывода
 }
 
 date::date(int day1, int month1, int year1) { //Конструктор с параметрами 
-	if (day1 < 0 || day1>31) {
+	if (day1 < 1 || day1>31) {
 		day = 0;
 	}
 	else {
 		day = day1;
 	}
-	if (month1 < 0 || month1>12) {
+	if (month1 < 1 || month1>12) {
 		month = 0;
 	}
 	else {
 		month = month1;
 	}
-	if (year1 < 0) {
+	if (year1 < 1 || year > 2021) {
 		year = 0;
 	}
 	else {
