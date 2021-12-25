@@ -19,8 +19,17 @@ int main()
     setlocale(LC_ALL, "Rus");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    ticket tick = ticket();
-    driver drive;
-    drive.input();
-    drive.output();
+    date data[2];
+	date data1[3][2];
+	for (int i = 0; i < 2; i++) {
+		data[i] = date(12, 11, 2021);
+		data[i].output();
+	}
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 2; j++) {
+			data1[i][j] = date(15, 8, 2001);
+			data1[i][j].output();
+			printf("  ");
+		}
+
 }
