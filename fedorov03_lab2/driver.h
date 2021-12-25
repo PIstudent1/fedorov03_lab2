@@ -27,7 +27,9 @@ private:
 public: 
 	void input();
 	void output();
-
+	driver(string name, string lastname, date birthdate, bus driversbus) : human(name, lastname, birthdate) {
+		this->driversbus = driversbus;
+	}
 };
 
 class passenger :public human {

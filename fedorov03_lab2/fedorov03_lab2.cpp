@@ -19,7 +19,7 @@ int main()
     setlocale(LC_ALL, "Rus");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    date data[2];
+   /* date data[2];
 	date data1[3][2];
 	for (int i = 0; i < 2; i++) {
 		data[i] = date(12, 11, 2021);
@@ -31,5 +31,10 @@ int main()
 			data1[i][j].output();
 			printf("  ");
 		}
-
+	}*/
+	date date12 = date(12, 12, 2020);
+	bus bus1 = bus();
+	bus1.input();
+	driver drive = driver("Иван", "Иванов", date12, bus1);
+	drive.output();
 }

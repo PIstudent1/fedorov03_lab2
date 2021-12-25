@@ -101,3 +101,5 @@ void driver::output() {
 	printf("\nИнформация об автобусе");
 	driversbus.output();
 }
+
+
