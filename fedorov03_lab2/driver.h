@@ -1,10 +1,11 @@
 #pragma once
 #include "date.h"
+#include "bus.h"
 #include <iostream>
 #define N 15
 using namespace std;
 
-class driver { //Класс водитель
+class human { //Класс водитель
 private:
 	std::string name; //Имя
 	std::string lastname; //Фамилия
@@ -12,9 +13,23 @@ private:
 public:
 	void input(); //Метод ввода
 	void output(); //Метод вывода 
-	driver(std::string name, std::string lastname, date birthdate); //Конструктор с парметрами
-	driver();
-	driver(std::string value);
-	driver(const driver& driver);
-	driver& operator=(const driver& driver);
+	human(std::string name, std::string lastname, date birthdate); //Конструктор с парметрами
+	human();
+	human(std::string value);
+	human(const human& human);
+	human& operator=(const human& human);
+};
+
+
+class driver : protected human {
+private: 
+	bus driversbus;
+public: 
+	void input();
+	void output();
+
+};
+
+class passenger :public human {
+
 };

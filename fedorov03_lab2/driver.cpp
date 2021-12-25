@@ -8,7 +8,7 @@
 
 
 
-void driver::input() { //Метод ввода
+void human::input() { //Метод ввода
 	printf("\nВведите имя: ");
 	cin >> name;
 	while (getchar() != '\n');
@@ -20,7 +20,7 @@ void driver::input() { //Метод ввода
 	
 }
 
-driver::driver(std::string name, std::string lastname, date birthdate) { //Конструктор с параметрами
+human::human(std::string name, std::string lastname, date birthdate) { //Конструктор с параметрами
 	
 	for (int i = 0; i <= name.size(); i++) {
 		if (name[i] == '\0') {
@@ -41,13 +41,13 @@ driver::driver(std::string name, std::string lastname, date birthdate) { //Конст
 	this->birthdate = birthdate;
 }
 
-driver::driver(){};      //Конструктор без параметров
+human::human(){};      //Конструктор без параметров
 
-driver::driver(std::string value) { //Конструктор с одним параметром 
+human::human(std::string value) { //Конструктор с одним параметром 
 	this->name = value;
 }
 
-void driver::output() { //Метод вывода
+void human::output() { //Метод вывода
 	printf("\nИмя: ");
 	cout << name << endl;
 	printf("\nФамилия: ");
@@ -56,34 +56,48 @@ void driver::output() { //Метод вывода
 	birthdate.output();
 }
 
-driver::driver(const driver& driver) { //Конструктор копирования
+human::human(const human& human) { //Конструктор копирования
 	for (int i = 0; i <= name.size(); i++) {
 		if (name[i] == '\0') {
-			name = driver.name;
+			name = human.name;
 		}
 	}
 	for (int i = 0; i <= lastname.size(); i++) {
 		if (lastname[i] == '\0') {
-			lastname = driver.lastname; 
+			lastname = human.lastname; 
 		}
 	}
-	birthdate = driver.birthdate;
+	birthdate = human.birthdate;
 }
 
-driver& driver::operator=(const driver& driver) { //оператор присваивания
-	if (this == &driver) {
+human& human::operator=(const human& human) { //оператор присваивания
+	if (this == &human) {
 		return *this;
 	}
 	for (int i = 0; i <= name.size(); i++) {
 		if (name[i] == '\0') {
-			name = driver.name;
+			name = human.name;
 		}
 	}
 	for (int i = 0; i <= lastname.size(); i++) {
 		if (lastname[i] == '\0') {
-			lastname = driver.lastname;
+			lastname = human.lastname;
 		}
 	}
-	birthdate = driver.birthdate;
+	birthdate = human.birthdate;
 	return *this;
+}
+
+void driver::input() {
+	printf("\nВведите информацию о водителе: ");
+	this->human::input();
+	printf("\nВведите информацию об автобусе: ");
+	driversbus.input();
+}
+
+void driver::output() {
+	printf("\nИнформация о водителе: ");
+	this->human::output();
+	printf("\nИнформация об автобусе");
+	driversbus.output();
 }

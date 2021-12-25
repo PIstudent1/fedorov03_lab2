@@ -12,10 +12,10 @@ private:
 	std::string punkt; //Пункт назначения
 	int hours; //Часы
 	int minutes; //Минуты
-	driver ticketdrive; //Присоединение класса водитель
+	passenger passengerticket; //Присоединение класса водитель
 public:
 	void input(); //Метод для ввода 
-	ticket(int sum, std::string punkt, int hours, int minutes, driver ticketdrive); //Конструктор с параметрами
+	ticket(int sum, std::string punkt, int hours, int minutes, passenger passengerticket); //Конструктор с параметрами
 	ticket(); //Конструктор без параметров
 	ticket(int value);//Конструктор с одним параметром
 	void output(); //Метод для  вывода
