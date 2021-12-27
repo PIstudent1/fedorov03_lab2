@@ -61,6 +61,7 @@ std::ostream& operator<<(std::ostream &out, const date& data) {
 	return out;
 }
 
+
 date::date(int day1, int month1, int year1) { //Конструктор с параметрами 
 	if (day1 < 1 || day1>31) {
 		day = 0;
@@ -140,4 +141,8 @@ date date::operator++(int) { //пергрузка '++' постфиксный
 	date data = *this;
 	++*this;
 	return data;
+}
+
+int date::getAge() {
+	return 2021 - year;
 }

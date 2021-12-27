@@ -107,3 +107,7 @@ ostream& human::print(std::ostream& out) const {
 	out << "\nФамилия:" << this->name << "\nИмя:" << this->lastname << "\nДата рождения:" << this->birthdate << ""; // 7
 	return out;
 }
+
+int passenger::getAge() {
+	return this->birthdate.getAge();
+}

@@ -13,6 +13,7 @@ public:
 	date(int value);//Конструктор с одним параметром
 	int* indays(date &date1); //Метод рассчета дней между датами
 	friend void reset(date& date);
+	int getAge();
 	date operator+(int day);
 	date& operator++();
 	date operator++(int);

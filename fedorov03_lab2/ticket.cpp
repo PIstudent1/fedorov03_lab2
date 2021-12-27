@@ -7,93 +7,225 @@
 #include "ticket.h" //Присоединение заголовочного файла
 
 
-int ticket::count = 0;
-void ticket::input() //Метод ввода
+//int ticket::count = 0;
+void forchildren::input() //Метод ввода
 {
-	count++;
-	id = count;
-	printf("\n\nВведите цену билета: ");
-	while (scanf("%d", &sum) != 1) {
+	/*count++;
+	id = count;*/
+	do {
+		printf("\n\nВведите цену билета: ");
+		while (scanf("%d", &sum) != 1) {
+			while (getchar() != '\n');
+			printf("Ошибка. Введите число: ");
+		}
+		printf("\n\nВведите пункт назначения: ");
+		cin >> punkt;
 		while (getchar() != '\n');
-		printf("Ошибка. Введите число: ");
-	}
-	printf("\n\nВведите пункт назначения: ");
-	cin >> punkt;
-	while (getchar() != '\n');
-	printf("\n\nВведите время отправления: ");
-	printf("\n\nВведите часы: ");
-	while (scanf("%d", &hours) != 1) {
-		while (getchar() != '\n');
-		printf("Ошибка. Введите число: ");
-	}
-	printf("\n\nВведите минуты: ");
-	while (scanf("%d", &minutes) != 1) {
-		while (getchar() != '\n');
-		printf("Ошибка. Введите число: ");
-	}
-	printf("\n\nВведите информацию о пассажире:");
-	passengerticket.input();
+		printf("\n\nВведите время отправления: ");
+		printf("\n\nВведите часы: ");
+		while (scanf("%d", &hours) != 1) {
+			while (getchar() != '\n');
+			printf("Ошибка. Введите число: ");
+		}
+		printf("\n\nВведите минуты: ");
+		while (scanf("%d", &minutes) != 1) {
+			while (getchar() != '\n');
+			printf("Ошибка. Введите число: ");
+		}
+		printf("\n\nВведите информацию о пассажире:");
+		passengerticket.input();
+	} while (passengerticket.getAge() > 12);
 }
 
-ticket::ticket(int sum, std::string punkt, int hours, int minutes, passenger passengerticket) //Метод создания
+forchildren::forchildren(int sum, std::string punkt, int hours, int minutes, passenger passengerticket) //Метод создания
 {
 	int f = 0;
-	if (sum < 0) {
-		this->sum = 0;
-	}
-	else {
-		this->sum = sum;
-	}
-	for (int i = 0; i <= punkt.size(); i++) {
-		if (punkt[i] == '\0') {
-			this->punkt = punkt;
+	f = passengerticket.getAge();
+	if (f < 12) {
+		if (sum < 0) {
+			this->sum = 0;
 		}
 		else {
-			this->punkt = "-";
+			this->sum = sum;
 		}
-	}
-	if (hours < 0 || hours > 23) {
-		this->hours = 0;
+		for (int i = 0; i <= punkt.size(); i++) {
+			if (punkt[i] == '\0') {
+				this->punkt = punkt;
+			}
+			else {
+				this->punkt = "-";
+			}
+		}
+		if (hours < 0 || hours > 23) {
+			this->hours = 0;
+		}
+		else {
+			this->hours = hours;
+		}
+		if (minutes < 0 || minutes > 59) {
+			this->minutes = 0;
+		}
+		else {
+			this->minutes = minutes;
+		}
+		this->passengerticket = passengerticket;
 	}
 	else {
-		this->hours = hours;
+		printf("\nВозраст пассажира больше 12! Это должен быть взрослый билет!");
 	}
-	if (minutes < 0 || minutes > 59) {
-		this->minutes = 0;
-	}
-	else {
-		this->minutes = minutes;
-	}
-	this->passengerticket = passengerticket;
-	count++;
-	id = count;
+	/*count++;
+	id = count;*/
 }
 
-ticket::ticket() {}; //Конструктор без параметров
+forchildren::forchildren() {}; //Конструктор без параметров
 
-ticket::ticket(int value) {
+forchildren::forchildren(int value) {
 	this->sum = value;
 }
 
-std::ostream& operator<<(std::ostream& out, const ticket& ticket) {
+//
+//std::ostream& operator<<(std::ostream& out, const ticket& ticket) {
+//
+//	out << "\nЦена билета: " << ticket.sum << "\nПункт назначения: " << ticket.punkt << "\nВремя отправления: " << ticket.hours << ":" << ticket.minutes << "\nИнформация о пассажире: " << ticket.passengerticket <<"";
+//	return out;
+//}
 
-	out << "\nЦена билета: " << ticket.sum << "\nПункт назначения: " << ticket.punkt << "\nВремя отправления: " << ticket.hours << ":" << ticket.minutes << "\nИнформация о пассажире: " << ticket.passengerticket <<"";
-	return out;
-}
-
-void ticket::sale() //Метод расчета цены с учетом скидки
+void forchildren::sale(int sl1) //Метод расчета цены с учетом скидки
 {
-	int sl1=0;
-	double sl2=0;
-	printf("\n\nВведите процент скидки:");
-	scanf("%d", &sl1);
+	int sl2=0;
 	sl2 = this->sum - (this->sum * sl1 / 100);
-	printf("\n\nЦена с учетом скидки %d процент(ов): %lg",sl1, sl2 );
+	return sl2;
 }
 
-void ticket::changeDestination(ticket& ticket, std::string punkt) { // Статический метод
+void forchildren::output(){
+	int a = 0;
+	printf("\nИнформация о билете:");
+	a = this->sum.sale(30);
+	printf("\nЦена с учетом скидки(30%): %d", a);
+	printf("\nПункт назначения: %d");
+	cout << this->punkt << endl;
+	printf("\nВремя отправления: %d:%d", hours,minutes);
+	printf("\nИнформация о пасажире: ");
+	cout << this->passengerticket << "\n";
+}
 
-	if (punkt.size() != 0) {
-		ticket.punkt = punkt;
+//void ticket::changeDestination(ticket& ticket, std::string punkt) { // Статический метод
+//
+//	if (punkt.size() != 0) {
+//		ticket.punkt = punkt;
+//	}
+//}
+
+//int ticket::count = 0;
+
+void foradult::input() //Метод ввода
+{
+	/*count++;
+	id = count;*/
+	do {
+		printf("\n\nВведите цену билета: ");
+		while (scanf("%d", &sum) != 1) {
+			while (getchar() != '\n');
+			printf("Ошибка. Введите число: ");
+		}
+		printf("\n\nВведите пункт назначения: ");
+		cin >> punkt;
+		while (getchar() != '\n');
+		printf("\n\nВведите время отправления: ");
+		printf("\n\nВведите часы: ");
+		while (scanf("%d", &hours) != 1) {
+			while (getchar() != '\n');
+			printf("Ошибка. Введите число: ");
+		}
+		printf("\n\nВведите минуты: ");
+		while (scanf("%d", &minutes) != 1) {
+			while (getchar() != '\n');
+			printf("Ошибка. Введите число: ");
+		}
+		printf("\n\nВведите информацию о пассажире:");
+		passengerticket.input();
+	} while (passengerticket.getAge() < 12);
+}
+
+foradult::foradult(int sum, std::string punkt, int hours, int minutes, passenger passengerticket) //Метод создания
+{
+	int f = 0;
+	f = passengerticket.getAge();
+	if (f>12) {
+		if (sum < 0) {
+			this->sum = 0;
+		}
+		else {
+			this->sum = sum;
+		}
+		for (int i = 0; i <= punkt.size(); i++) {
+			if (punkt[i] == '\0') {
+				this->punkt = punkt;
+			}
+			else {
+				this->punkt = "-";
+			}
+		}
+		if (hours < 0 || hours > 23) {
+			this->hours = 0;
+		}
+		else {
+			this->hours = hours;
+		}
+		if (minutes < 0 || minutes > 59) {
+			this->minutes = 0;
+		}
+		else {
+			this->minutes = minutes;
+		}
+		this->passengerticket = passengerticket;
 	}
+	else {
+		printf("\nВозраст пассажира меньше 12! Это должен быть детский билет!");
+	}
+	/*count++;
+	id = count;*/
 }
+
+foradult::foradult() {}; //Конструктор без параметров
+
+foradult::foradult(int value) {
+	this->sum = value;
+}
+//
+//std::ostream& operator<<(std::ostream& out, const ticket& ticket) {
+//
+//	out << "\nЦена билета: " << ticket.sum << "\nПункт назначения: " << ticket.punkt << "\nВремя отправления: " << ticket.hours << ":" << ticket.minutes << "\nИнформация о пассажире: " << ticket.passengerticket <<"";
+//	return out;
+//}
+
+int foradult::sale(int sl2) //Метод расчета цены с учетом скидки
+{
+	int sl2 = 0;
+	sl2 = this->sum - (this->sum * sl1 / 100);
+	return sl2;
+}
+
+void foradult::output() {
+	printf("\nИнформация о билете:");
+	printf("\nЦена: %d", this->sum);
+	printf("\nПункт назначения: %d");
+	cout << this->punkt << endl;
+	printf("\nВремя отправления: %d:%d", hours, minutes);
+	printf("\nИнформация о пасажире: ");
+	cout << this->passengerticket << "\n";
+}
+
+//void ticket::changeDestination(ticket& ticket, std::string punkt) { // Статический метод
+//
+//	if (punkt.size() != 0) {
+//		ticket.punkt = punkt;
+//	}
+//}
+
+
+
+
+
+
+

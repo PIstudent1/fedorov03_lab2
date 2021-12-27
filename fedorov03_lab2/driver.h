@@ -39,4 +39,5 @@ public:
 	passenger() {
 	};
 	virtual std::ostream& print(std::ostream& out) const override;
+	int getAge();
 };
