@@ -6,13 +6,14 @@
 using namespace std;
 
 class human { //Класс водитель
-private:
+public:
 	std::string name; //Имя
 	std::string lastname; //Фамилия
-	date birthdate; //Присоединение структуры дата
+	date birthdate; //Присоединение класса дата
 public:
 	void input(); //Метод ввода
-	void output(); //Метод вывода 
+	friend std::ostream& operator<<(std::ostream& out, const human &human) ; //Метод вывода 
+	virtual std::ostream& print(std::ostream& out) const;
 	human(std::string name, std::string lastname, date birthdate); //Конструктор с парметрами
 	human();
 	human(std::string value);
@@ -27,11 +28,15 @@ private:
 public: 
 	void input();
 	void output();
+	driver() {};
 	driver(string name, string lastname, date birthdate, bus driversbus) : human(name, lastname, birthdate) {
 		this->driversbus = driversbus;
-	}
+	};
 };
 
 class passenger :public human {
-
+public:
+	passenger() {
+	};
+	virtual std::ostream& print(std::ostream& out) const override;
 };

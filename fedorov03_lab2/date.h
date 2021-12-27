@@ -1,5 +1,5 @@
 #pragma once
-
+#include <iostream>
 class date { //Класс дата
 private:
 	int day; //День
@@ -7,7 +7,7 @@ private:
 	int year; //Год
 public:
 	void input(); //Метод ввода 
-	void output(); //Метод вывода 
+	friend std::ostream& operator<<(std::ostream &out, const date& data); //Метод вывода 
 	date(int day1, int month1, int year1); //Конструктор с параметрами
 	date();//Конструктор без параметров
 	date(int value);//Конструктор с одним параметром

@@ -11,15 +11,15 @@ using namespace std;
 
 void bus::input() //метод ввода 
 {
-	printf("\n\nвведите номер автобуса: ");
+	printf("\n\nВведите номер автобуса: ");
 	while (scanf("%d", &num) !=1) {
 		while (getchar() != '\n');
 		printf("ошибка. введите число: ");
 	}
-	printf("\n\nвведите марку автобуса: ");
+	printf("\n\nВведите марку автобуса: ");
 	cin >> mark;
 	while (getchar() != '\n');
-	printf("\n\nвведите данные о двигателе:\n");
+	printf("\n\nВведите данные о двигателе:\n");
 	busengine.input();
 }
 
@@ -49,12 +49,8 @@ bus::bus(int value) { //Конструктор с одним параметром
 	this->num = value;
 }
 
-void bus::output() //метод вывода
-{
-	printf("\n\nномер автобуса: %d", num);
-	printf("\n\nмарка автобуса: ");
-	cout << mark << endl;
-	printf("\n\nданные о двигателе:");
-	busengine.output();
+std::ostream& operator<<(std::ostream& out, const bus& bus) {
+	out << "\nНомер авобуса: " << bus.num << "\nМарка: " << bus.mark << "\nИнформация о двигателе: " << bus.busengine << "";
+	return out;
 }
 

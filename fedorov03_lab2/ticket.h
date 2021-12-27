@@ -18,7 +18,7 @@ public:
 	ticket(int sum, std::string punkt, int hours, int minutes, passenger passengerticket); //Конструктор с параметрами
 	ticket(); //Конструктор без параметров
 	ticket(int value);//Конструктор с одним параметром
-	void output(); //Метод для  вывода
+	friend std::ostream& operator<<(std::ostream& out, const ticket& ticket); //Метод для  вывода
 	void sale();  //Метод для расчета цены с учетом скидки
 	static void changeDestination(ticket &ticket, std::string punkt);
 };

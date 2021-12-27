@@ -14,5 +14,5 @@ public:
 	bus(int num, std::string mark, engine busengine); //Конструктор с параметрами
 	bus();//Конструктор без параметров
 	bus(int value);//Конструктор с одним параметром
-	void output(); //Метод для вывода
+	friend std::ostream& operator<<(std::ostream& out, const bus& bus); //Метод для вывода
 };

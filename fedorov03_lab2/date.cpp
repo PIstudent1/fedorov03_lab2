@@ -56,8 +56,9 @@ void date::input() { //Метод ввода
 	this->year = input;
 }
 
-void date::output() { //Метод вывода 
-	printf("%d.%d.%d", day, month, year);
+std::ostream& operator<<(std::ostream &out, const date& data) {
+	out << "" << data.day << "."<< data.month << "." << data.year << "";
+	return out;
 }
 
 date::date(int day1, int month1, int year1) { //Конструктор с параметрами 

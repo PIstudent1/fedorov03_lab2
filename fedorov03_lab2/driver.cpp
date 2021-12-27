@@ -47,14 +47,7 @@ human::human(std::string value) { //Конструктор с одним параметром
 	this->name = value;
 }
 
-void human::output() { //Метод вывода
-	printf("\nИмя: ");
-	cout << name << endl;
-	printf("\nФамилия: ");
-	cout << lastname << endl;
-	printf("\n\nДата рождения: ");
-	birthdate.output();
-}
+
 
 human::human(const human& human) { //Конструктор копирования
 	for (int i = 0; i <= name.size(); i++) {
@@ -94,12 +87,23 @@ void driver::input() {
 	printf("\nВведите информацию об автобусе: ");
 	driversbus.input();
 }
-
 void driver::output() {
 	printf("\nИнформация о водителе: ");
-	this->human::output();
+	cout << this << "\n";
 	printf("\nИнформация об автобусе");
-	driversbus.output();
+	cout << driversbus << "\n";
 }
 
+std::ostream& passenger::print(std::ostream& out) const{
+	out << "\nФамилия:" << this->name << "\nИмя:" << this->lastname << "\nДата рождения:" << this->birthdate << "";
+	return out;
+}
 
+std::ostream& operator<<(std::ostream& out, const human& human) { // 6
+	return human.print(out);
+}
+
+ostream& human::print(std::ostream& out) const {
+	out << "\nФамилия:" << this->name << "\nИмя:" << this->lastname << "\nДата рождения:" << this->birthdate << ""; // 7
+	return out;
+}

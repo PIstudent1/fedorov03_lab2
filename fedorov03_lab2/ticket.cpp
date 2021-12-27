@@ -75,16 +75,10 @@ ticket::ticket(int value) {
 	this->sum = value;
 }
 
-void ticket::output() //Метод вывода
-{
-	printf("\n\nИнформация о билете: ");
-	printf("\n\nId: %d", id);
-	printf("\n\nЦена билета: %d", sum);
-	printf("\n\nПункт назначения: ");
-	cout << punkt << endl;
-	printf("\n\nВремя отправления: %d:%d", hours, minutes);
-	printf("\n\nИнформация о пассажире:\n ");
-	passengerticket.output();
+std::ostream& operator<<(std::ostream& out, const ticket& ticket) {
+
+	out << "\nЦена билета: " << ticket.sum << "\nПункт назначения: " << ticket.punkt << "\nВремя отправления: " << ticket.hours << ":" << ticket.minutes << "\nИнформация о пассажире: " << ticket.passengerticket <<"";
+	return out;
 }
 
 void ticket::sale() //Метод расчета цены с учетом скидки

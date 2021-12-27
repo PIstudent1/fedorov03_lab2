@@ -47,12 +47,9 @@ engine::engine(int value) { //Конструктор с одним параметром
 
 };
 
-void engine::output()  //Метод вывода 
-{
-	printf("\n\nСерийный номер двигателя: %d", num);
-	printf("\n\nМощность двигателя: %d л.с.", power);
-	printf("\n\nДата производства: ");
-	createdate.output();
+std::ostream& operator<<(std::ostream& out, const engine& engine) {
+	out << "\nСерийный номер: " << engine.num << "\nМощность двигателя в л.с.: " << engine.power << "\nДата производства: " << engine.createdate << "";
+	return out;
 }
 
 int engine::tokvt() //Метод перевода мощности в кВт

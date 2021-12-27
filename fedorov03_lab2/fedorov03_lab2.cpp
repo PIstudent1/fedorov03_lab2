@@ -32,9 +32,20 @@ int main()
 			printf("  ");
 		}
 	}*/
-	date date12 = date(12, 12, 2020);
+	/*date date12 = date(12, 12, 2020); //4
 	bus bus1 = bus();
 	bus1.input();
 	driver drive = driver("Иван", "Иванов", date12, bus1);
-	drive.output();
+	drive.output();*/
+	//passenger pass = passenger(); // 5
+	//human human = human;
+	//pass.input();
+	//human = pass;
+	//std::cout << human << "\n";
+	human human;
+	human.input();
+	std::cout << human << "\n";
+	passenger pass = passenger();
+	pass.input();
+	std::cout << pass << "\n";
 }
